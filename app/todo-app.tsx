@@ -2,9 +2,16 @@
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+} from '@/components/ui/table';
 import { ChangeEvent, useState } from 'react';
 
 type Todo = {
+  readonly id: number;
   value: string;
 };
 
@@ -14,7 +21,7 @@ export default function TodoApp() {
 
   function handleSubmit() {
     if (!text) return;
-    const newTodo: Todo = { value: text };
+    const newTodo: Todo = { id: new Date().getTime(), value: text };
     setTodos((todos) => [newTodo, ...todos]);
     setText('');
   }
@@ -24,8 +31,16 @@ export default function TodoApp() {
     setText(e.target.value);
   }
 
+  function handleEdit(id: number, value: string) {
+    setTodos((todos) =>
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, value: value } : todo
+      )
+    );
+  }
+
   return (
-    <div>
+    <div className="flex w-full flex-col gap-4">
       <form
         className="flex flex-row gap-2"
         onSubmit={(e) => {
@@ -49,6 +64,25 @@ export default function TodoApp() {
           追加
         </Button>
       </form>
+
+      <Table>
+        <TableBody>
+          {todos.map((todo) => (
+            <TableRow key={todo.id}>
+              <TableCell>
+                <Input
+                  type="text"
+                  value={todo.value}
+                  onChange={(e) => {
+                    e.preventDefault();
+                    handleEdit(todo.id, e.target.value);
+                  }}
+                />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 }
