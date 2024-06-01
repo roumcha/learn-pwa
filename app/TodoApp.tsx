@@ -10,16 +10,17 @@ export default function TodoApp() {
   const [text, setText] = useState('');
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  const handleSubmit = () => {
+  function handleSubmit() {
     if (!text) return;
     const newTodo: Todo = { value: text };
     setTodos((todos) => [newTodo, ...todos]);
     setText('');
-  };
+  }
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
     setText(e.target.value);
-  };
+  }
 
   return (
     <div>
@@ -40,7 +41,10 @@ export default function TodoApp() {
           type="submit"
           className="rounded-lg border-2 border-solid border-[#8888] px-2 py-1"
           value="追加"
-          onSubmit={(e) => handleSubmit()}
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
         />
       </form>
     </div>
