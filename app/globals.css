@@ -2,32 +2,217 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+/* primary color: lime | green */
+/* color: slate-900 | slate-200 */
+/* emphasis color: slate-900 | white */
+/* background color: white | #18161a */
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    @apply scroll-py-28 scroll-smooth break-words;
+
+    --color: #0f172a;
+    --color-emphasis: #0f172a;
+    --background-color: white;
+    --code-background-color: #f5f5f7;
+    --border-color: #ccd;
+  }
+
+  :root.dark {
+    --color: #e7ecf3;
+    --color-emphasis: #f5f5f5;
+    --background-color: #16181a;
+    --code-background-color: #323234;
+    --border-color: #555;
+  }
+
+  body {
+    @apply grid h-[100dvh] grid-rows-[auto_1fr_auto] break-words bg-[--background-color] text-left font-sans text-[--color] transition-[background-color];
+  }
+
+  ::selection {
+    @apply bg-lime-300 bg-opacity-70 transition-[background-color];
+  }
+
+  .dark ::selection {
+    @apply bg-green-600 bg-opacity-70;
+  }
+
+  h1 {
+    @apply py-4 text-3xl leading-normal text-[--color-emphasis] sm:text-[2rem];
+  }
+
+  h2 {
+    @apply mb-para mt-12 border-b border-[--border-color] pb-3 text-2xl font-bold text-[--color-emphasis];
+  }
+
+  h3 {
+    @apply mb-para mt-8 text-xl font-bold text-[--color-emphasis];
+  }
+
+  h4,
+  h5,
+  h6 {
+    @apply mb-2 mt-4 pb-1 text-lg font-bold text-[--color-emphasis];
+  }
+
+  strong,
+  b {
+    @apply font-bold text-[--color-emphasis];
+  }
+
+  p {
+    @apply mb-para leading-semiloose sm:leading-loose;
+  }
+
+  a {
+    @apply text-lime-700 underline decoration-lime-700 transition-colors duration-75 hover:text-lime-600 hover:decoration-lime-600;
+  }
+
+  .dark a {
+    @apply text-green-400 decoration-green-400 decoration-[0.5px] transition-colors duration-75 hover:text-green-300 hover:decoration-green-300;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    @apply mb-para border-collapse border-spacing-0;
+  }
+
+  table thead {
+    @apply rounded-lg bg-[#7783];
+  }
+
+  table th,
+  table td {
+    @apply border border-[--border-color] p-2;
+  }
+
+  article img {
+    @apply rounded-xl;
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    @apply mb-para rounded-xl border border-solid border-[--border-color] p-5 italic;
+  }
+
+  blockquote > :first-child {
+    @apply mt-0;
+  }
+
+  blockquote > :last-child {
+    @apply mb-0;
+  }
+
+  mark {
+    @apply rounded-sm p-0.5;
+  }
+
+  hr {
+    @apply mb-para border-t border-[--border-color];
+  }
+
+  ol,
+  ul {
+    @apply mb-2 leading-semiloose sm:leading-loose;
+  }
+
+  ol p,
+  ul p {
+    @apply m-0;
+  }
+
+  body > ol,
+  body > ul,
+  article > ol,
+  article > ul,
+  .prose > ol,
+  .prose > ul,
+  main > ol,
+  main > ul {
+    @apply mb-para;
+  }
+
+  ol li,
+  ul li {
+    @apply ms-4 ps-0.5;
+  }
+
+  body > ol > li,
+  body > ul > li,
+  article > ol > li,
+  article > ul > li,
+  .prose > ol > li,
+  .prose > ul > li,
+  main > ol > li,
+  main > ul > li {
+    @apply ms-6;
+  }
+
+  ol li::marker {
+    @apply font-bold;
+  }
+
+  ul li {
+    @apply list-disc;
+  }
+
+  ul ul li {
+    @apply list-[circle];
+  }
+
+  ul ul ul li {
+    @apply list-[square];
+  }
+
+  ol li {
+    @apply list-decimal;
+  }
+
+  ol ol li {
+    @apply list-[lower-roman];
+  }
+
+  details {
+    @apply mb-para rounded-xl border border-[--border-color] p-2 sm:p-3;
+  }
+
+  details > summary {
+    @apply -m-2 cursor-pointer p-2 font-bold sm:-m-3 sm:p-3;
+  }
+
+  details > :nth-child(2) {
+    @apply mt-2;
+  }
+
+  details > :last-child {
+    @apply mb-2;
+  }
+
+  details > :not(summary) {
+    @apply mx-2;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  .link-hover-grey {
+    @apply inline-block rounded-lg p-2 no-underline transition-colors duration-75 hover:bg-[#8883] dark:hover:bg-[#8885] [&.selected]:bg-[#8883] dark:[&.selected]:bg-[#8885];
   }
 }
