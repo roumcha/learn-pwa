@@ -1,5 +1,7 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { ChangeEvent, useState } from 'react';
 
 type Todo = {
@@ -31,21 +33,21 @@ export default function TodoApp() {
           handleSubmit();
         }}
       >
-        <input
+        <Input
           type="text"
-          className="rounded-lg border-2 border-solid border-[#8888] px-2 py-1"
+          placeholder="タスクを入力"
           value={text}
           onChange={(e) => handleChange(e)}
         />
-        <input
+        <Button
           type="submit"
-          className="rounded-lg border-2 border-solid border-[#8888] px-2 py-1"
-          value="追加"
           onSubmit={(e) => {
             e.preventDefault();
             handleSubmit();
           }}
-        />
+        >
+          追加
+        </Button>
       </form>
     </div>
   );

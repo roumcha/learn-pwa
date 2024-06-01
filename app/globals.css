@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* primary color: lime | green */
+/* primary color: slate | slate */
 /* color: slate-900 | slate-200 */
 /* emphasis color: slate-900 | white */
 /* background color: white | #18161a */
@@ -27,15 +27,15 @@
   }
 
   body {
-    @apply grid h-[100dvh] grid-rows-[auto_1fr_auto] break-words bg-[--background-color] text-left font-sans text-[--color] transition-[background-color];
+    @apply bg-[--background-color] text-left font-sans text-[--color] transition-[background-color];
   }
 
   ::selection {
-    @apply bg-lime-300 bg-opacity-70 transition-[background-color];
+    @apply bg-slate-300 bg-opacity-70 transition-[background-color];
   }
 
   .dark ::selection {
-    @apply bg-green-600 bg-opacity-70;
+    @apply bg-slate-600 bg-opacity-70;
   }
 
   h1 {
@@ -65,12 +65,12 @@
     @apply mb-para leading-semiloose sm:leading-loose;
   }
 
-  a {
-    @apply text-lime-700 underline decoration-lime-700 transition-colors duration-75 hover:text-lime-600 hover:decoration-lime-600;
+  /* a {
+    @apply text-slate-700 underline decoration-slate-700 transition-colors duration-75 hover:text-slate-600 hover:decoration-slate-600;
   }
 
   .dark a {
-    @apply text-green-400 decoration-green-400 decoration-[0.5px] transition-colors duration-75 hover:text-green-300 hover:decoration-green-300;
+    @apply text-slate-400 decoration-slate-400 decoration-[0.5px] transition-colors duration-75 hover:text-slate-300 hover:decoration-slate-300;
   }
 
   nav a {
@@ -208,11 +208,11 @@
 
   details > :not(summary) {
     @apply mx-2;
-  }
+  } */
 }
 
-@layer components {
+/* @layer components {
   .link-hover-grey {
     @apply inline-block rounded-lg p-2 no-underline transition-colors duration-75 hover:bg-[#8883] dark:hover:bg-[#8885] [&.selected]:bg-[#8883] dark:[&.selected]:bg-[#8885];
   }
-}
+} */
