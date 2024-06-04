@@ -10,10 +10,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
     "lint": "next lint",
     "format": "prettier --write --log-level log **/*.{html,css,js,cjs,mjs,ts,jsx,tsx,json,yaml}",
-    "upload": "gh-pages -d out"
+    "upload": "gh-pages -d out --nojekyll"
   },
   "dependencies": {
     "@fluentui/react-icons": "^2.0.242",
@@ -49,6 +48,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "gh-pages": "^6.1.1",
+    "http-server": "^14.1.1",
     "postcss": "^8",
     "prettier": "^3.3.0",
     "prettier-plugin-tailwindcss": "^0.6",

@@ -1,7 +1,7 @@
 import nextPWA from 'next-pwa';
 
 /** @type {import('next').NextConfig} */
-const nextConfig = { output: 'export' };
+const nextConfig = { output: 'export', basePath: '/learn-pwa' };
 
 const withPWA = nextPWA({
   dest: 'public',

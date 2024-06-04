@@ -1,8 +1,8 @@
 {
   "display": "standalone",
   "id": "/learn-pwa/",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "/learn-pwa/",
+  "start_url": "/learn-pwa/",
   "name": "The ToDo App",
   "short_name": "The ToDo App",
   "description": "Sample to-do app",
