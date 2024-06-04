@@ -16,7 +16,7 @@ type Props = {
 
 export default function TodoCard(props: Props): React.JSX.Element {
   return (
-    <Card className="hoverable:hover:bg-slate-500/10 p-4 transition-[background-color] focus-within:bg-slate-500/10">
+    <Card className="p-4 transition-[background-color] focus-within:bg-slate-500/10 hoverable:hover:bg-slate-500/10">
       <CardContent className="flex w-full gap-2 p-0">
         <div className="flex items-center">
           <Checkbox
