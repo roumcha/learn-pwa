@@ -94,7 +94,9 @@ export default function TodoApp(): JSX.Element {
         />
       )}
 
-      <TodoItems todos={todos} filter={filter} onTodo={handleTodo} />
+      <div className="pb-8">
+        <TodoItems todos={todos} filter={filter} onTodo={handleTodo} />
+      </div>
 
       {filter === 'removed' && (
         <Button
