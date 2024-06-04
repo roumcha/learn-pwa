@@ -18,6 +18,14 @@ module.exports = {
     extend: {
       lineHeight: { semiloose: '1.75' },
       margin: { para: '1.4rem' },
+      borderRadius: {
+        sm: '.375rem',
+        md: '.5rem',
+        lg: '.75rem',
+        xl: '1rem',
+        '2xl': '1.5rem',
+        '3xl': '2rem',
+      },
       fontFamily: {
         sans: [
           '-apple-system',
@@ -64,6 +72,9 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      screens: {
+        hoverable: { raw: '(hover: hover) and (pointer: fine)' },
       },
     },
   },

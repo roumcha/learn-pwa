@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
+import { ThemeProvider } from './_components/theme-provider';
 import './globals.css';
-import { ThemeProvider } from './theme-provider';
 
 export const metadata: Metadata = {
   title: 'Todo App',
@@ -14,7 +14,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body>
+      <head>
+        <link rel="icon" href="/icon-192x192.png" sizes="48x48" />
+        <link
+          rel="icon"
+          href="/icon.svg"
+          sizes="any"
+          type="image/svg+xml"
+        />
+        <link rel="manifest" href="/manifest.json" />
+
+        <link rel="apple-touch-icon" href="/icon-192x192.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="TODO" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="default"
+        ></meta>
+        <meta
+          name="viewport"
+          content="initial-scale=1, viewport-fit=cover"
+        />
+      </head>
+      <body className="pb-[env(safe-area-inset-bottom)]">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
