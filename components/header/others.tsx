@@ -18,9 +18,9 @@ type Props = {
 
 export default function HeaderOthers(props: Props): React.JSX.Element {
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon" aria-label="Other Settings">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

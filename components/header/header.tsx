@@ -22,7 +22,7 @@ export default function Header(props: Props): React.JSX.Element {
   return (
     <header
       className={clsx(
-        'grid-col-3 bg- grid h-14 w-full items-center bg-[--background-color] px-4 py-2',
+        'grid-col-3 grid h-14 w-full bg-[--background-color] px-4 py-2',
         props.className
       )}
     >
