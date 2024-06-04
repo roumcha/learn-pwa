@@ -2,7 +2,7 @@
   "name": "todo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://todo.roumcha.com",
+  "homepage": "https://roumcha.github.io/learn-pwa/",
   "engines": {
     "node": "20.x",
     "pnpm": "9.x"
